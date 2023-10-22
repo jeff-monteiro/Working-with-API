@@ -1,8 +1,8 @@
-const booksTable = document.getElementById("livros")
+const tabelaLivros = document.getElementById("livros")
 
-function showBooksOnScreen(listOfBooks){
-    listOfBooks.forEach(livro => {
-        booksTable.innerHTML += `
+function showBooksOnScreen(listaDeLivros){
+    listaDeLivros.forEach(livro => {
+        tabelaLivros.innerHTML += `
         <div class="livro">
             <img class="livro__imagens" src="${livro.imagem}" alt="${livro.alt}" />
             <h2 class="livro__titulo">
