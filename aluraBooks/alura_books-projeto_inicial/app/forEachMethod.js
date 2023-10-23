@@ -1,6 +1,7 @@
 const tabelaLivros = document.getElementById("livros")
 
 function showBooksOnScreen(listaDeLivros){
+    tabelaLivros.innerHTML = ''
     listaDeLivros.forEach(livro => {
         tabelaLivros.innerHTML += `
         <div class="livro">
