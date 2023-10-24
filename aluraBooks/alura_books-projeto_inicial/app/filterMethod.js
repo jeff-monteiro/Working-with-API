@@ -5,6 +5,27 @@ botoes.forEach(btn => btn.addEventListener('click', filtrarLivros))
 function filtrarLivros(){
     const elementoBtn = document.getElementById(this.id)
     const categoria = elementoBtn.value
-    let livrosFiltrados = livros.filter(livro => livro.categoria == categoria)
+    let livrosFiltrados = categoria == 'disponivel' ? filtrarPorDisponibilidade() : filtrarPorCategoria(categoria)
     showBooksOnScreen(livrosFiltrados)
+    if (categoria == 'disponivel'){
+        const valorTotal = calcularTotalLivrosDisponiveis(livrosFiltrados)
+        exibirValorTotal(valorTotal)
+    }
+    
+}
+
+function filtrarPorCategoria(categoria) {
+    return livros.filter(livro => livro.categoria == categoria)
+}
+
+function filtrarPorDisponibilidade() {
+    return livros.filter(livro => livro.quantidade > 0)
+}
+
+function exibirValorTotal(valorTotal){
+    elementoLivrosDisponiveis.innerHTML = `
+    <div class="livros__disponiveis">
+        <p>Todos os livros disponíveis por R$ <span id="valor">${valorTotal}</span></p>
+    </div>
+    `
 }

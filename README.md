@@ -6,3 +6,4 @@
   * Map Method
   * ForEach
   * Sort
+  * Reduce
