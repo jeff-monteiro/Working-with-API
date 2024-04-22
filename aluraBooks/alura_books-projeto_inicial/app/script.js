@@ -6,7 +6,6 @@ async function searchBooks(){
     const res = await fetch(endpointAPI)
     livros = await res.json()
     let livrosComDesconto = applyDiscounts(livros)
-    
     showBooksOnScreen(livrosComDesconto)
 }
 
